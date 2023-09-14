@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
@@ -14,7 +15,7 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	@Query("""
 			select m from Medico m
 			where
-			m.ativo = true
+			m.ativos = true
 			and
 			m.especialidade = :especialidade
 			and
@@ -29,11 +30,11 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	Medico escolherMedicoAleatorioLivreNaData(Especialidade especialidade, LocalDateTime date);
 	
 	@Query("""
-			select m.ativo
+			select m.ativos
 			from Medico m
 			where
 			m.id = :id
 			""")
-	Boolean findAtivoById(Long id);
+	Boolean findAtivosById(Long id);
 
 }
