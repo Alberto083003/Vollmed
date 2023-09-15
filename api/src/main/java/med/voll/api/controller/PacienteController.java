@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.paciente.DadosAtualizaPaciente;
@@ -25,7 +26,7 @@ import med.voll.api.domain.paciente.DadosDetalhamentoPaciente;
 import med.voll.api.domain.paciente.DadosListagemPaciente;
 import med.voll.api.domain.paciente.Paciente;
 import med.voll.api.domain.paciente.PacienteRepository;
-
+@SecurityRequirement(name = "bearer-key")
 @RestController
 @RequestMapping("pacientes")
 public class PacienteController {
