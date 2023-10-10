@@ -26,6 +26,8 @@ import med.voll.api.domain.medico.Especialidade;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.medico.MedicoRepository;
 
+
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
@@ -72,7 +74,7 @@ class MedicosControllerTest {
 						.content(dadodosCadastroMedicoJson.write(dadosCadastro).getJson()))
 				.andReturn().getResponse();
 		var dadosDetalhamento = new DadosDetalhamentoMedico(
-				null,
+				0l,
 				dadosCadastro.nome(),
 				dadosCadastro.email(), 
 				dadosCadastro.crm(),
